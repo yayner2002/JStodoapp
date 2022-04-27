@@ -1,1 +1,103 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body {
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+  font-family: Lato;
+}
+
+.toDoList {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  width: 80%;
+  margin: auto;
+  margin-top: 3%;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.todo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-sync-icon {
+  color: gray;
+}
+
+.clear-all {
+  background-color: #f5f1f1;
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 17px;
+  color: rgb(145, 145, 145);
+}
+
+.new-task {
+  font-size: 18px;
+  outline: none;
+  font-style: italic;
+  padding: 25px;
+  border-left: none;
+  border-right: none;
+  width: 92%;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-task {
+  background: none;
+  border: none;
+  color: gray;
+  cursor: pointer;
+  padding-right: 0;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+  padding-right: 0;
+}
+
+label {
+  align-self: flex-start;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.fa-ellipsis-v {
+  color: lightgray;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  width: 30px;
+  height: 25px;
+}
+
+.inputEl-label {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  align-content: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.inputEl-label label {
+  margin-top: 5px;
+}

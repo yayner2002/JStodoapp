@@ -17,21 +17,6 @@ const toDoList = [
     completed: false,
     index: 2,
   },
-  {
-    description: 'Do a Codding Challenge',
-    completed: false,
-    index: 3,
-  },
-  {
-    description: 'Attend the Stand-Up Meeting',
-    completed: false,
-    index: 4,
-  },
-  {
-    description: 'Join Live Javascript Bootcamp',
-    completed: false,
-    index: 5,
-  },
 ];
 
 const component = () => {
@@ -45,11 +30,13 @@ const component = () => {
     <button class="btn-task" aria-label="create new task"><i class="fas fa-level-down-alt rotate"></i></button>
   </form>
   `;
-  toDoList.forEach((list, index) => {
+  toDoList.forEach((list) => {
     htmlEl += `
       <div class="task">
-         <input type="checkbox" id="task-${list[index]}">
-         <label for="task-${list[index]}">${list.description}</label>
+         <div class="inputEl-label">
+            <input type="checkbox" id="task-${list.index}">
+            <label for="task-${list.index}">${list.description}</label>
+          </div>
          <i class="fas fa-ellipsis-v"></i>
       </div>
     `;
