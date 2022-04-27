@@ -1,72 +1,48 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+# To Do List App
 
-# Project Name
-
-> Description the project.
-
-
+> A simple To Do List App for learning purpose
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- Css
+- HTML
+- Webpack
+- Javascript
+## Live Demo
 
-## Live Demo (if available)
+[Live Demo Link](https://yayner2002.github.io/to-do-list-app/)
 
-[Live Demo Link](https://livedemo.com)
-
-
+## Screenshot
+![home page](app_screenshot.png?raw=true "home screenshot")
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
 To get a local copy up and running follow these simple example steps.
+1. Clone the Repo or Download the Zip file
+2. Run the live server or simply open index.html with your browser.
+After downloading or clonning run the following commands
+ 1. npm install
+ 2. npm start
+
 
 ### Prerequisites
-
-### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
-
+- none
 
 ## Authors
 
 👤 **Author1**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@yayner2002](https://github.com/yayner2002/)
+- Twitter: [@wediagazian](https://twitter.com/twitterhandle)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/yaynshet-medhin)
 
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/yayner2002/to-do-list-app/issues).
 
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
 
 ## 📝 License
 
