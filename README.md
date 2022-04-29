@@ -1,6 +1,6 @@
 # To Do List App
 
-> A simple To Do List App for learning purpose
+> A To Do List app designed to help web developers practice Javacript concepts. Users can create add, remove and edit tasks. Built with Javascript."
 ## Built With
 
 - Css
