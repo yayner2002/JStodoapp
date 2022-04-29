@@ -80,7 +80,7 @@ input[type="checkbox"] {
   position: absolute;
   padding: 5px 0;
   right: -5px;
-  bottom: -65px;
+  bottom: -30px;
   z-index: 2;
   list-style: none;
   background: #fff;
@@ -100,13 +100,13 @@ input[type="checkbox"] {
   font-size: 16px;
   margin-bottom: 2px;
   justify-content: flex-start;
-  padding: 2px 15px;
+  padding: 0 8px;
 }
 
 .task-menu li i {
-  padding-right: 8px;
-  color: lightgray;
+  color: #e0dfac;
   font-size: 18px;
+  margin-top: 2px;
 }
 
 .task-menu li:hover {
@@ -132,7 +132,7 @@ input[type="checkbox"] {
 }
 
 .task label input {
-  margin-top: 15px;
+  margin-top: 20px;
   margin-left: 0;
 }
 
@@ -152,4 +152,11 @@ input[type="checkbox"] {
   text-align: center;
   padding: 50px;
   margin: 15px auto;
+}
+
+.paragraph {
+  border: none;
+  outline: none;
+  padding: 5px;
+  width: 100%;
 }

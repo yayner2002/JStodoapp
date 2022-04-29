@@ -19,12 +19,11 @@ export default class Tasks {
          <li class="task">
             <label for="task-${this.index}">
                 <input class="updateStat" type="checkbox" id="${this.index}">
-                <p>${this.description}</p>
+                <p contenteditable="true" class="paragraph" id="${this.index}">${this.description}</p>
              </label>
             <div class="setting">
                 <i class="fas fa-ellipsis-v" class="fa-ellipsis-v"></i>
                 <ul class="task-menu">
-                    <li><i class="fas fa-pen" id="${this.index}"></i></li>
                     <li><i class="fa fa-trash" id='${this.index}' aria-hidden="true"></i></li>
                 </ul>
             </div> 
@@ -51,8 +50,8 @@ export const listFromLocalStorage = JSON.parse(
   localStorage.getItem('ourTasks'),
 );
 export function displayTask() {
-  // eslint-disable-next-line max-len
-  const renderTasks = toDoList.map((task) => new Tasks(task.description, task.completed, task.index).renderTasks());
+  const renderTasks = toDoList
+    .map((task) => new Tasks(task.description, task.completed, task.index).renderTasks());
   toDoListEl.innerHTML = renderTasks.join('');
 
   const removeButton = document.querySelectorAll('.fa-trash');
@@ -61,6 +60,7 @@ export function displayTask() {
       const id = e.target.getAttribute('id');
       Tasks.removeTask(id);
       displayTask();
+      window.location.reload();
     });
   });
 }
@@ -70,9 +70,7 @@ if (listFromLocalStorage) {
 }
 export function getData() {
   const taskValue = newTaskEl.value.replace(/^[ ]+|[ ]+$/g, '');
-  // eslint-disable-next-line prefer-const
-  let completed = false;
-  window.console.log(taskValue);
+  const completed = false;
   if (!taskValue) {
     return;
   }
@@ -85,12 +83,12 @@ export function getData() {
     localStorage.setItem('ourTasks', JSON.stringify(toDoList));
   }
   displayTask();
+  window.location.reload();
   newTaskEl.value = '';
 }
 const updateStat = document.querySelectorAll('.updateStat');
 updateStat.forEach((el) => {
   el.addEventListener('click', (e) => {
-    window.console.log(e.target.id);
     const taskName = e.target.parentElement.lastElementChild;
     if (el.checked) {
       taskName.classList.add('checked');
@@ -103,7 +101,6 @@ updateStat.forEach((el) => {
   });
 });
 const ellipsis = document.querySelectorAll('.fa-ellipsis-v');
-window.console.log(ellipsis);
 ellipsis.forEach((el) => {
   el.addEventListener('click', (e) => {
     const menu = e.target;
@@ -116,19 +113,42 @@ ellipsis.forEach((el) => {
     });
   });
 });
-const editBtn = document.querySelectorAll('.fa-pen');
-window.console.log(editBtn);
-editBtn.forEach((el) => {
-  el.addEventListener('click', (e) => {
+
+export const paragraph = document.querySelectorAll('.paragraph');
+
+paragraph.forEach((el) => {
+  el.addEventListener('focusin', (e) => {
     const id = e.target.getAttribute('id');
     editId = id - 1;
     isEdited = true;
     const name = toDoList[id - 1].description;
-    newTaskEl.value = name;
+    e.target.innerHTML = name;
+  });
+});
+paragraph.forEach((el) => {
+  el.addEventListener('focusout', (e) => {
+    const taskValue = e.target.innerHTML;
+    const completed = false;
+    if (!taskValue) {
+      return;
+    }
+    if (!isEdited) {
+      const newTask = new Tasks(taskValue, completed);
+      Tasks.appendTask(newTask);
+    } else {
+      isEdited = false;
+      toDoList[editId].description = taskValue;
+      localStorage.setItem('ourTasks', JSON.stringify(toDoList));
+    }
+    displayTask();
+    window.location.reload();
+    newTaskEl.value = '';
   });
 });
 clearAll.addEventListener('click', () => {
-  toDoList.splice(0, toDoList.length);
+  const allCompleted = toDoList.filter((task) => task.completed !== true);
+  toDoList = allCompleted;
   localStorage.setItem('ourTasks', JSON.stringify(toDoList));
   displayTask();
+  window.location.reload();
 });
