@@ -5,19 +5,14 @@ body {
   font-family: Lato;
 }
 
-.toDoList {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  padding: 2rem;
-  width: 80%;
-  margin: auto;
-  margin-top: 3%;
-}
-
 .container {
-  width: 90%;
   margin: auto;
   box-sizing: border-box;
   overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  width: 80%;
+  margin-top: 3%;
 }
 
 .todo-header {
@@ -37,13 +32,14 @@ body {
   cursor: pointer;
   font-size: 17px;
   color: rgb(145, 145, 145);
+  margin-top: 10px;
 }
 
-.new-task {
+#new-task {
   font-size: 18px;
   outline: none;
   font-style: italic;
-  padding: 25px;
+  padding: 15px;
   border-left: none;
   border-right: none;
   width: 92%;
@@ -64,20 +60,6 @@ form {
   padding-right: 0;
 }
 
-.task {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid lightgray;
-  padding-right: 0;
-}
-
-label {
-  align-self: flex-start;
-  cursor: pointer;
-  margin-left: 10px;
-}
-
 .fa-ellipsis-v {
   color: lightgray;
   font-size: 20px;
@@ -89,15 +71,85 @@ input[type="checkbox"] {
   height: 25px;
 }
 
-.inputEl-label {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  align-content: center;
-  padding-top: 25px;
-  padding-bottom: 25px;
+.setting {
+  cursor: pointer;
+  position: relative;
 }
 
-.inputEl-label label {
-  margin-top: 5px;
+.setting .task-menu {
+  position: absolute;
+  padding: 5px 0;
+  right: -5px;
+  bottom: -65px;
+  z-index: 2;
+  list-style: none;
+  background: #fff;
+  border-radius: 5px;
+  transition: transform 0.2s ease;
+  transform-origin: top right;
+  transform: scale(0);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+}
+
+.setting .task-menu.show {
+  transform: scale(1);
+}
+
+.task-menu li {
+  height: 25px;
+  font-size: 16px;
+  margin-bottom: 2px;
+  justify-content: flex-start;
+  padding: 2px 15px;
+}
+
+.task-menu li i {
+  padding-right: 8px;
+  color: lightgray;
+  font-size: 18px;
+}
+
+.task-menu li:hover {
+  background: #f5f5f5;
+}
+
+.task-menu li:last-child {
+  margin-bottom: 0;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  border-bottom: 1px solid darkgray;
+  list-style: none;
+  font-size: 17px;
+}
+
+.task label {
+  display: flex;
+}
+
+.task label input {
+  margin-top: 15px;
+  margin-left: 0;
+}
+
+.task label p {
+  margin-left: 10px;
+}
+
+.task label p.checked {
+  text-decoration: line-through;
+}
+
+.task:last-child {
+  border-bottom: none;
+}
+
+.empty-span {
+  text-align: center;
+  padding: 50px;
+  margin: 15px auto;
 }

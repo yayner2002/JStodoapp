@@ -31,7 +31,7 @@ After downloading or clonning run the following commands
 👤 **Author1**
 
 - GitHub: [@yayner2002](https://github.com/yayner2002/)
-- Twitter: [@wediagazian](https://twitter.com/twitterhandle)
+- Twitter: [@wediagazian](https://twitter.com/wediagazian)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/yaynshet-medhin)
 
 ## 🤝 Contributing
