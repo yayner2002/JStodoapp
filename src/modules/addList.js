@@ -1,3 +1,5 @@
+import { trim } from 'lodash';
+
 export const form = document.querySelector('form');
 export const newTaskEl = document.getElementById('new-task');
 export const toDoListEl = document.querySelector('.toDoList');
@@ -6,7 +8,8 @@ export const clearAll = document.querySelector('.clear-all');
 export const inputEl = document.querySelectorAll('.inputEl');
 let editId;
 let isEdited = false;
-let toDoList = [];
+// eslint-disable-next-line import/no-mutable-exports
+export let toDoList = [];
 export default class Tasks {
   constructor(description, completed, index) {
     this.description = description;
@@ -86,20 +89,7 @@ export function getData() {
   window.location.reload();
   newTaskEl.value = '';
 }
-const updateStat = document.querySelectorAll('.updateStat');
-updateStat.forEach((el) => {
-  el.addEventListener('click', (e) => {
-    const taskName = e.target.parentElement.lastElementChild;
-    if (el.checked) {
-      taskName.classList.add('checked');
-      toDoList[e.target.id - 1].completed = true;
-    } else {
-      taskName.classList.remove('checked');
-      toDoList[e.target.id - 1].completed = false;
-    }
-    localStorage.setItem('ourTasks', JSON.stringify(toDoList));
-  });
-});
+export const updateStat = document.querySelectorAll('.updateStat');
 const ellipsis = document.querySelectorAll('.fa-ellipsis-v');
 ellipsis.forEach((el) => {
   el.addEventListener('click', (e) => {
@@ -127,7 +117,7 @@ paragraph.forEach((el) => {
 });
 paragraph.forEach((el) => {
   el.addEventListener('focusout', (e) => {
-    const taskValue = e.target.innerHTML;
+    const taskValue = trim(e.target.innerHTML);
     const completed = false;
     if (!taskValue) {
       return;
